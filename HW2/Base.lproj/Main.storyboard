@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,36 +14,43 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HW2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nw8-nN-rS7">
-                                <rect key="frame" x="129.33333333333331" y="715.66666666666663" width="131.33333333333331" height="34.333333333333371"/>
+                                <rect key="frame" x="139" y="728" width="115" height="30"/>
+                                <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="nw8-nN-rS7" secondAttribute="height" multiplier="65:17" id="612-bD-3tT"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" secondItem="nw8-nN-rS7" secondAttribute="height" multiplier="65:17" id="612-bD-3tT"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <color key="tintColor" systemColor="systemGroupedBackgroundColor"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="START">
+                                    <color key="titleShadowColor" name="AccentColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="switchLight" destination="BYZ-38-t0r" eventType="touchUpInside" id="tnU-yC-WOQ"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="59" translatesAutoresizingMaskIntoConstraints="NO" id="pow-Uy-LnB">
-                                <rect key="frame" x="129" y="72" width="132" height="514"/>
+                                <rect key="frame" x="129" y="84" width="135" height="523"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k3V-vg-6Es">
-                                        <rect key="frame" x="0.0" y="0.0" width="132" height="132"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="135" height="135"/>
                                         <color key="backgroundColor" systemColor="systemRedColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="k3V-vg-6Es" secondAttribute="height" multiplier="1:1" id="D3c-dm-HPV"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sx8-AK-9Jp">
-                                        <rect key="frame" x="0.0" y="191" width="132" height="132"/>
+                                        <rect key="frame" x="0.0" y="194" width="135" height="135"/>
                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="sx8-AK-9Jp" secondAttribute="height" multiplier="1:1" id="Qmx-54-KOC"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dyy-LJ-4N8">
-                                        <rect key="frame" x="0.0" y="382" width="132" height="132"/>
+                                        <rect key="frame" x="0.0" y="388" width="135" height="135"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Dyy-LJ-4N8" secondAttribute="height" multiplier="1:1" id="Wf9-xZ-ZIv"/>
@@ -61,6 +69,12 @@
                             <constraint firstItem="nw8-nN-rS7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="j84-tW-cTY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="greenLightView" destination="Dyy-LJ-4N8" id="qCP-nc-M0y"/>
+                        <outlet property="redLightView" destination="k3V-vg-6Es" id="afF-di-1YB"/>
+                        <outlet property="switchLightButton" destination="nw8-nN-rS7" id="Om4-wx-lV3"/>
+                        <outlet property="yellowLightView" destination="sx8-AK-9Jp" id="n6Y-FY-wt6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -68,11 +82,17 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
